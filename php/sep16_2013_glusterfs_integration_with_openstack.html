@@ -4,18 +4,18 @@
 	<head>
 		<meta charset="utf-8">
 
-		<title>Slide on Cloud - Reveal.js Presentation on OpenShift PaaS</title>
+		<title>GlusterFS Integration with OpenStack - OpenStack Meetup Boston Sept 16 2013 - Luis Pabon</title>
 
-		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
-		<meta name="author" content="Hakim El Hattab">
+		<meta name="description" content="GlusterFS Integration with OpenStack">
+		<meta name="author" content="Luis Pabon">
 
 		<meta name="apple-mobile-web-app-capable" content="yes" />
 		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<link rel="stylesheet" href="css/reveal.min.css">
-		<link rel="stylesheet" href="css/theme/default.css" id="theme">
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/simple.css" id="theme">
 
 		<!-- For syntax highlighting -->
 		<link rel="stylesheet" href="lib/css/zenburn.css">
@@ -36,7 +36,82 @@
 
 			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
-
+			    <section>
+			        <h1>GlusterFS Integration with</h1>
+			        <h1>OpenStack</h1>
+			        <h5>OpenStack Meetup - Boston - September 16, 2013</h5>
+			    </section>
+                <section>
+                    <h1>About Me</h1>
+                </section>
+                <section>
+                    <h2>Luis Pabon</h2>
+                    <img src="images/luis_pabon.png" />
+                    <p>Principal Software Engineer @ <a href="http://www.redhat.com">Red Hat</a></p>
+                    <p>Project Tech Lead for <a href="http://launchpad.net/gluster-swift">gluster-swift</a></p>
+                </section>
+                <section>
+                    <h2>Luis Pabon</h2>
+                    <img src="images/qrcode.png">
+                </section>
+                <section>
+                    <h1>OpenStack</h1>
+                </section>
+                <section>
+                    <h2>OpenStack Services</h2>
+                    <img src="http://www.openstack.org/themes/openstack/images/openstack-software-diagram.png" />
+                </section>
+                <section>
+                    <img src="http://www.openstack.org/themes/openstack/images/new-icons/openstack-object-storage-icon.png" />
+                    <h2>OpenStack Storage</h2>
+                </section>
+                <section>
+                    <h2>Ephemeral Storage</h2>
+                    <ul>
+                        <li>Allocated by to the VM by Nova</li>
+                        <li>Persists until the VM is deleted</li>
+                        <li>Storage for the VM operating system</li>
+                    </ul>
+                </section>
+                <section>
+                    <h2>Glance</h2>
+                    <ul>
+                        <li>Provides image services</li>
+                        <li>Discovery, registration, and retreiving</li>
+                        <li>Can use local, network, block, or object storage</li>
+                    </ul>
+                </section>
+                <section>
+                    <h2>Cinder</h2>
+                    <ul>
+                        <li>Persistent instance storage</li>
+                        <li>Manages block storage for instances</li>
+                        <li>Snapshots, clones</li>
+                        <li>Third-party plug-in interface</li>
+                    </ul>
+                </section>
+                <section>
+                    <h1>Swift</h1>
+                </section>
+                <section>
+                    <h2>Swift</h2>
+                    <ul>
+                        <li>Provides object storage over REST interface</li>
+                        <li>Horizontal storage scaleout</li>
+                        <li>Used in large scale production today</li>
+                    </ul>
+                </section>
+                <section>
+                    <h2>Swift Architecture</h2>
+                    <img src="images/swift_architecture.png" />
+                </section>
+                <section>
+                    <h1>Object, Block, Ephemeral</h1>
+                    <h1>OH MY!</h1>
+                </section>
+                <section>
+                    <h1>GlusterFS</h1>
+                </section>
 				<section>
 					<h1>Reveal.js on</h1>
 					<h1>OpenShift</h1>
