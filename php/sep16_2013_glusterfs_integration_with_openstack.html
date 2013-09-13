@@ -91,9 +91,6 @@
                     </ul>
                 </section>
                 <section>
-                    <h1>Swift</h1>
-                </section>
-                <section>
                     <h2>Swift</h2>
                     <ul>
                         <li>Provides object storage over REST interface</li>
@@ -130,20 +127,99 @@
                 </section>
                 <section>
                     <h2>GlusterFS Brick</h2>
+                    <ul>
+                        <li>A brick is the combination of a node and an export directory</li>
+                        <li>Each brick inherits limits of the underlying firesystem</li>
+                        <li>Ideally, each brick in a cluster should be of the same size</li>
+                    </ul>
+                    <img src="images/gluster_bricks.png" />
                 </section>
                 <section>
                     <h2>GlusterFS Volume</h2>
+                    <ul>
+                        <li>A volume is a logical collection of bricks</li>
+                        <li>A volume is identified by an administrator provided name</li>
+                        <li>Volumes can be either distributed, striped, and/or replicated</li>
+                    </ul>
                 </section>
                 <section>
-                    <h2>Distrubuted Volume</h2>
+                    <h2>Distributed Volume</h2>
+                    <ul>
+                        <li>Distributed files across various bricks of the volume</li>
+                        <li>Directories are present on all bricks of the volume</li>
+                    </ul>
+                    <img src="images/Distributed_Volume.png" />
                 </section>
                 <section>
-                    <h2>GlusterFS Example</h2>
+                    <h2>Replicated Volume</h2>
+                    <ul>
+                        <li>Creates synchronous copies of all directory and file updates</li>
+                        <li>Provides high availability of data when nodes failures occur</li>
+                        <li>Transaction driven for ensuring consistency</li>
+                    </ul>
+                    <img src="images/Replicated_Volume.png" />
+                </section>
+                <section>
+                    <h2>Striped Volume</h2>
+                    <ul>
+                        <li>Files are striped into chunks and placed in various bricks</li>
+                        <li>
+                            Recommended only when very large files greater than the size 
+                            of the bricks
+                        </li>
+                        <li>
+                            Redundancy with replication is highly recommended since a 
+                            brick failure can result in data loss
+                        </li>
+                    </ul>
+                    <img src="images/Striped_Volume.png" />
+                </section>
+                <section>
+                    <h2>Distributed Striped Replicated Volume</h2>
+                    <img src="images/Distributed_Striped_Replicated_Volume.png" />
+                </section>
+                <section>
+                    <h2>GlusterFS Volume Example</h2>
+                    <p>
+                        Example: Create a six node distributed and replicated
+                        volume with a two-way mirror
+                    </p>
+                    <pre><code contenteditable>
+$ sudo gluster volume create myvolme \
+    replica 2 \
+    transport tcp \
+    server1:/export/brick \
+    server2:/export/brick \
+    server3:/export/brick \
+    server4:/export/brick \
+    server5:/export/brick \
+    server6:/export/brick
+$ sudo gluster volume start myvolme
+$ sudo mount -t glusterfs server1:myvolume /mnt/gluster/myvolume
+                    </code></pre>
+                </section>
+                <section>
+                    <h2>Geo Replication</h2>
+                    <ul>
+                        <li>Master-slave setup</li>
+                        <li>Asynchronous incrementaal replication</li>
+                        <li>Disaster recovery</li>
+                    </ul>
+                    <img src="images/Geo-Rep03_Internet.png" />
                 </section>
                 <section>
                     <h1>GlusterFS</h1>
                     <h1>+</h1>
                     <h1>OpenStack</h1>
+                </section>
+                <section>
+                    <h2>Benefits of using GlusterFS</h2>
+                    <ul>
+                        <li>Geo Replication</li>
+                        <li>Share capacity with rest of the storage pool</li>
+                        <li>Access to data over multiple protocols</li>
+                    </ul>
+                    <img src="images/gluster_openstack.png" />
                 </section>
                 <section>
                     <h1>GlusterFS Swift Use Case</h1>
