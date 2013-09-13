@@ -110,6 +110,12 @@
                     <h1>GlusterFS</h1>
                 </section>
                 <section>
+                    <h1>What is it?</h1>
+                </section>
+                <section>
+                    <h1><em>glusterfs overview</em></h1>
+                </section>
+                <section>
                     <h2>GlusterFS Access Models</h2>
                     <ul>
                         <li>File Access over FUSE</li>
@@ -123,7 +129,7 @@
                     <h1>GlusterFS Architecture</h1>
                 </section>
                 <section>
-                    <h5>architecture picture</h5>
+                    <h1><em>add arch picture</em></h1>
                 </section>
                 <section>
                     <h2>GlusterFS Brick</h2>
@@ -202,7 +208,7 @@ $ sudo mount -t glusterfs server1:myvolume /mnt/gluster/myvolume
                     <h2>Geo Replication</h2>
                     <ul>
                         <li>Master-slave setup</li>
-                        <li>Asynchronous incrementaal replication</li>
+                        <li>Asynchronous incremental replication</li>
                         <li>Disaster recovery</li>
                     </ul>
                     <img src="images/Geo-Rep03_Internet.png" />
@@ -213,13 +219,52 @@ $ sudo mount -t glusterfs server1:myvolume /mnt/gluster/myvolume
                     <h1>OpenStack</h1>
                 </section>
                 <section>
-                    <h2>Benefits of using GlusterFS</h2>
+                    <h2>Benefits</h2>
                     <ul>
                         <li>Geo Replication</li>
                         <li>Share capacity with rest of the storage pool</li>
                         <li>Access to data over multiple protocols</li>
                     </ul>
                     <img src="images/gluster_openstack.png" />
+                </section>
+                <section>
+                    <h2>GlusterFS for Ephemeral Storage</h2>
+                    <h3 class="fragment">Shared storage capacity</h3>
+                    <h3 class="fragment">Live Migrations</h3>
+                </section>
+                <section>
+                    <h2>GlusterFS for Glance</h2>
+                    <h3 class="fragment">Shared storage capacity</h3>
+                    <h3 class="fragment">Geo Replication</h3>
+                    <p class="fragment">
+                        <a href="http://www.gluster.org/community/documentation/index.php/GlusterFS_Glance">
+                            <em>More Info</em>
+                        </a>
+                    </p>
+                </section>
+                <section>
+                    <h2>GlusterFS for Cinder</h2>
+                    <h3 class="fragment">Shared storage capacity</h3>
+                    <h3 class="fragment">Geo Replication</h3>
+                    <h3 class="fragment">Hypervisor assisted snapshots</h3>
+                    <h3 class="fragment">Files served as block storage</h3>
+                    <p class="fragment">
+                        <a href="http://www.gluster.org/community/documentation/index.php/GlusterFS_Cinder">
+                            <em>More Info</em>
+                        </a>
+                    </p>
+                </section>
+                <section>
+                    <h2>GlusterFS for Swift</h2>
+                    <h3 class="fragment">Shared storage capacity</h3>
+                    <h3 class="fragment">Geo Replication</h3>
+                    <h3 class="fragment">Object access model</h3>
+                    <h3 class="fragment">Data access over multiple interfaces</h3>
+                    <p class="fragment">
+                        <a href="http://launchpad.net/gluster-swift">
+                            <em>More Info</em>
+                        </a>
+                    </p>
                 </section>
                 <section>
                     <h1>GlusterFS Swift Use Case</h1>
@@ -264,6 +309,20 @@ $ sudo mount -t glusterfs server1:myvolume /mnt/gluster/myvolume
                         over object interface
                     </p>
                     <img src="images/swift_use_case_obj_read.png" />
+                </section>
+                <section>
+                    <h2>More Information</h2>
+                    <ul>
+                        <li><a href="http://www.openstack.org">OpenStack</a></li>
+                        <li><a href="http://www.gluster.org">GlusterFS</a></li>
+                        <li><a href="http://openstack.redhat.com">Red Hat OpenStack Community Offering</a></li>
+                        <li><a href="http://launchpad.net/gluster-swift">Gluster for Swift</a></li>
+                    </ul>
+                </section>
+                <section>
+                    <h1>Thank You</h1>
+                    <p>This presentation is running on <a href="http://www.openshift.com">OpenShift</a></p>
+                    <p>and developed in HTML5 with <a href="http://lab.hakim.se/reveal-js">reveal.js</a></p>
                 </section>
 				<section>
 					<h1>Reveal.js on</h1>
