@@ -66,19 +66,19 @@
                     <h2>OpenStack Storage</h2>
                 </section>
                 <section>
-                    <h2>Ephemeral Storage</h2>
-                    <ul>
-                        <li>Allocated by to the VM by Nova</li>
-                        <li>Persists until the VM is deleted</li>
-                        <li>Storage for the VM operating system</li>
-                    </ul>
-                </section>
-                <section>
                     <h2>Glance</h2>
                     <ul>
                         <li>Provides image services</li>
                         <li>Discovery, registration, and retreiving</li>
                         <li>Can use local, network, block, or object storage</li>
+                    </ul>
+                </section>
+                <section>
+                    <h2>Ephemeral Storage (Nova)</h2>
+                    <ul>
+                        <li>Allocated by to the VM by Nova</li>
+                        <li>Persists until the VM is deleted</li>
+                        <li>Storage for the VM operating system</li>
                     </ul>
                 </section>
                 <section>
@@ -97,10 +97,6 @@
                         <li>Horizontal storage scaleout</li>
                         <li>Used in large scale production today</li>
                     </ul>
-                </section>
-                <section>
-                    <h2>Swift Architecture</h2>
-                    <img src="images/swift_architecture.png" />
                 </section>
                 <section>
                     <h1>Object, Block, Ephemeral</h1>
@@ -191,16 +187,16 @@
                         volume with a two-way mirror
                     </p>
                     <pre><code contenteditable>
-$ sudo gluster volume create myvolme \
+$ sudo gluster volume create myvolume \
     replica 2 \
     transport tcp \
-    server1:/export/brick \
-    server2:/export/brick \
-    server3:/export/brick \
-    server4:/export/brick \
-    server5:/export/brick \
-    server6:/export/brick
-$ sudo gluster volume start myvolme
+    server1:/export/brick/myvolume \
+    server2:/export/brick/myvolume \
+    server3:/export/brick/myvolume \
+    server4:/export/brick/myvolume \
+    server5:/export/brick/myvolume \
+    server6:/export/brick/myvolume
+$ sudo gluster volume start myvolume
 $ sudo mount -t glusterfs server1:myvolume /mnt/gluster/myvolume
                     </code></pre>
                 </section>
@@ -219,28 +215,22 @@ $ sudo mount -t glusterfs server1:myvolume /mnt/gluster/myvolume
                     <h1>OpenStack</h1>
                 </section>
                 <section>
-                    <h2>Benefits</h2>
-                    <ul>
-                        <li>Geo Replication</li>
-                        <li>Share capacity with rest of the storage pool</li>
-                        <li>Access to data over multiple protocols</li>
-                    </ul>
-                    <img src="images/gluster_openstack.png" />
-                </section>
-                <section>
-                    <h2>GlusterFS for Ephemeral Storage</h2>
-                    <h3 class="fragment">Shared storage capacity</h3>
-                    <h3 class="fragment">Live Migrations</h3>
-                </section>
-                <section>
                     <h2>GlusterFS for Glance</h2>
                     <h3 class="fragment">Shared storage capacity</h3>
                     <h3 class="fragment">Geo Replication</h3>
+                    <h3 class="fragment">Storage resizing</h3>
                     <p class="fragment">
                         <a href="http://www.gluster.org/community/documentation/index.php/GlusterFS_Glance">
                             <em>More Info</em>
                         </a>
                     </p>
+                </section>
+                <section>
+                    <h2>GlusterFS for Ephemeral Storage (Nova)</h2>
+                    <h3 class="fragment">Shared storage capacity</h3>
+                    <h3 class="fragment">Live Migrations</h3>
+                    <h3 class="fragment">Protection using replicated storage</h3>
+                    <h3 class="fragment">Enhanced performance using libgfapi</h3>
                 </section>
                 <section>
                     <h2>GlusterFS for Cinder</h2>
@@ -256,10 +246,12 @@ $ sudo mount -t glusterfs server1:myvolume /mnt/gluster/myvolume
                 </section>
                 <section>
                     <h2>GlusterFS for Swift</h2>
-                    <h3 class="fragment">Shared storage capacity</h3>
-                    <h3 class="fragment">Geo Replication</h3>
-                    <h3 class="fragment">Object access model</h3>
                     <h3 class="fragment">Data access over multiple interfaces</h3>
+                    <h3 class="fragment">Shared storage capacity</h3>
+                    <h3 class="fragment">Leverages GlusterFS Geo Replication</h3>
+                    <h3 class="fragment">Object access model</h3>
+                    <h3 class="fragment">Swift Grizzly supported</h3>
+                    <h3 class="fragment">Swift Havana support in progress</h3>
                     <p class="fragment">
                         <a href="http://launchpad.net/gluster-swift">
                             <em>More Info</em>
@@ -309,6 +301,20 @@ $ sudo mount -t glusterfs server1:myvolume /mnt/gluster/myvolume
                         over object interface
                     </p>
                     <img src="images/swift_use_case_obj_read.png" />
+                </section>
+                <section>
+                    <h2>Benefits</h2>
+                    <ul>
+                        <li>Geo Replication</li>
+                        <li>Share capacity with rest of the storage pool</li>
+                        <li>Access to data over multiple protocols</li>
+                        <li>Storage resizing</li>
+                    </ul>
+                    <img src="images/gluster_openstack.png" />
+                </section>
+                <section>
+                    <h1>GlusterFS</h1>
+                    <h2>The answer to you storage needs</h2>
                 </section>
                 <section>
                     <h2>More Information</h2>
