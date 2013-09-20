@@ -201,12 +201,12 @@
 $ sudo gluster volume create myvolume \
     replica 2 \
     transport tcp \
-    server1:/export/brick/myvolume \
-    server2:/export/brick/myvolume \
-    server3:/export/brick/myvolume \
-    server4:/export/brick/myvolume \
-    server5:/export/brick/myvolume \
-    server6:/export/brick/myvolume
+    server1:/export/brick/myvolume1 \
+    server2:/export/brick/myvolume2 \
+    server3:/export/brick/myvolume3 \
+    server4:/export/brick/myvolume4 \
+    server5:/export/brick/myvolume5 \
+    server6:/export/brick/myvolume6
 $ sudo gluster volume start myvolume
 $ sudo mount -t glusterfs server1:myvolume /mnt/gluster/myvolume
                     </code></pre>
