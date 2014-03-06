@@ -15,6 +15,10 @@
 * Date: Sept 16, 2013
 * Title: [GlusterFS Integration with OpenStack][]
 
+## Unit test in C using Cmockery2
+* Date: Feb 24, 2014
+* Title: [Unit Tests and RHS][unittest]
+
 # About me
 ![luis pabon](images/luis_pabon.png)
 Luis Pabon is a Principal Software Engineer member of Red Hat Storage, the
@@ -28,3 +32,4 @@ storage products.
 
 
 [GlusterFS Integration with OpenStack]: sep16_2013_glusterfs_integration_with_openstack.html
+[unittest]: feb24_glusterfs_unittest.html

@@ -1,0 +1,12 @@
+graph G {
+    lift -- cushion;
+    arm1 -- cushion;
+    arm2 -- cushion;
+    lean -- cushion;
+    leg -- lift;
+    wheel1 -- leg;
+    wheel2 -- leg;
+    wheel3 -- leg;
+    wheel4 -- leg;
+    wheel5 -- leg;
+}

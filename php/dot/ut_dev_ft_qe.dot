@@ -1,0 +1,11 @@
+
+graph G {
+    node [shape=box];
+    ft [ label="Functional Tests" ];
+    pt [ label="Test Patch" ];
+
+    Development -> Patch;
+    -> ft;
+    ft -> Submit;
+    Submit -> QE;
+}

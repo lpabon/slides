@@ -1,0 +1,18 @@
+graph G {
+    node [shape=ellipse] lift; cushion; arm1; arm2; lean; leg;
+    wheel1; wheel2; wheel3; wheel4; wheel5;
+    node [shape=box,label="UT",style=filled,color=lightblue]; 
+    wheel_ut; lift_ut; arm_ut; lean_ut; leg_ut; cushion_ut;
+
+    lift_ut -- lift;
+    arm_ut -- arm1;
+    arm_ut -- arm2;
+    lean_ut -- lean;
+    leg_ut -- leg;
+    wheel_ut -- wheel1;
+    wheel_ut -- wheel2;
+    wheel_ut -- wheel3;
+    wheel_ut -- wheel4;
+    wheel_ut -- wheel5;
+    cushion_ut -- cushion;
+}

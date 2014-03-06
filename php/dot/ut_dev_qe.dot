@@ -1,0 +1,6 @@
+graph G {
+    node [shape=box];
+
+    Development -> Submit;
+    Submit -> QE;
+}
