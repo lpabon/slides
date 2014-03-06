@@ -37,21 +37,96 @@
 			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
 			    <section>
-			        <h1>Unit Tests</h1>
-                    <h1>in</h1>
-                    <h1>C</h1>
+			        <h1>Testing</h1>
+                    <h1>Methodologies</h1>
+                    <h1>in C</h1>
 			        <h5>February 24, 2014</h5>
                     <h6>Luis Pab&oacute;n</h6>
 			    </section>
                 <section>
+                    <h3 class="fragment">Introduction to programming by contract</h3>
                     <h3 class="fragment">Introduction to unit testing</h3>
                     <h3 class="fragment">Unit testing in C</h3>
                     <h3 class="fragment">Lab</h3>
                 </section>
+
+                <!-- PBC -->
                 <section>
-                    <!-- Don't panic -->
-                    <img src="images/dont-panic-thumb.jpg" />
+                    <h1>Programming</h1>
+                    <h1>by</h1>
+                    <h1>Contract</h1>
                 </section>
+                <section>
+                    <h1>What is programming by contract?</h1>
+                </section>
+                <section>
+                    <h3>Programming by Contract</h3>
+                    <p>We implement programming (or design) by contract as a
+                    Hoare Triple:
+                    </p>
+                    <h2>{P} C {Q}</h2>
+                    <p>where <i>{P}</i> is the precondition before executing
+                    command <i>C</i>, and <i>{Q}</i> is the postcondition.
+                    </p>
+                </section>
+                <section>
+                    <h3>PBC C language Semantics</h3>
+                    <ul>
+                        <li>REQUIRE() - Function precondition</li>
+                        <li>ENSURE() - Function postcondition</li>
+                        <li>INVARIANT() - Test object consistancy</li>
+                    </ul>
+                    <p />
+                    <p>These semantics should only be enabled during debug builds</p>
+                </section>
+                <section>
+                    <h1>Example:</h1>
+                    <h1>GlusterFS dict</h1>
+                </section>
+                <section>
+                    <h3>Let's look at <code>_dict_set()</code></h3>
+                    <pre><code contenteditable language="c"> static int32_t
+_dict_set (dict_t *this, char *key, data_t *value, gf_boolean_t replace) {
+    ...
+}
+                    </code></pre>
+                </section>
+                <section>
+                    <h4>With PBC</h4>
+                    <pre><code contenteditable language="c"> static int32_t
+_dict_set (dict_t *this, char *key, data_t *value, gf_boolean_t replace) {
+    REQUIRE(key != NULL);
+    REQUIRE(this != NULL);
+    REQUIRE(value != NULL);
+    REQUIRE(1000000 &gt; strlen(key));
+    REQUIRE((_gf_false == replace) || (_gf_true == replace));
+    REQUIRE(NULL != THIS);
+    REQUIRE(NULL != THIS-&gt;ctx);
+    REQUIRE(NULL != THIS-&gt;ctx-&gt;dict_pair_pool);
+    INVARIANT(_dict_invariant(this));
+    ...
+    INVARIANT(_dict_invariant(this));
+    ENSURE(NULL != _dict_lookup(this, key));
+}
+                    </code></pre>
+                </section>
+                <section>
+                    <h4><code>_dict_invariant()</code></h4>
+                    <pre><code contenteditable language="c"> static void
+_dict_invariant (dict_t *this) {
+    REQUIRE(this != NULL);
+    REQUIRE(this-&gt;refcount &gt; 0);
+    REQUIRE(this-&gt;lock != 0);
+    REQUIRE(this-&gt;members != NULL);
+}
+                    </code></pre>
+                </section>
+
+
+                <section>
+                    <h1>Unit Testing</h1>
+                </section>
+
                 <section>
                     <!-- Bridge collapsing -->
                     <img src="images/Test-First.jpg" />
@@ -75,6 +150,7 @@
                     <h1>Car</h1>
                 </section>
                 <section>
+                    <p>You could build the entire car and then test</p>
                     <img src="images/1969-Ford-Torino-Talladega-Car-Body-Diagram.jpg" />
                 </section>
                 <section>
@@ -113,7 +189,7 @@ test_chair()
                     </code></pre>
                 </section>
                 <section>
-                    <h3>Possible chair test 2</h3>
+                    <h3>Possible automated chair test</h3>
                     <pre><code contenteditable language="c">
 // Replace human with robot
 test_chair()
@@ -162,77 +238,6 @@ test_wheel()
                     <img src="images/ut_chair_utests.png" />
                 </section>
 
-                <!-- PBC -->
-                <section>
-                    <h1>Example:</h1>
-                    <h1>GlusterFS dict</h1>
-                </section>
-                <section>
-                    <h3>Let's look at <code>_dict_set()</code></h3>
-                    <pre><code contenteditable language="c"> static int32_t
-_dict_set (dict_t *this, char *key, data_t *value, gf_boolean_t replace) {
-    ...
-}
-                    </code></pre>
-                </section>
-                <section>
-                    <h2>Fail Fast</h2>
-                    <p>When building a fault-tolerant system by means
-                    of redundant components, the individual components
-                    should be fail-fast to give the developers enough
-                    information to successfully evaluate the issue and avoid
-                    silent failures.</p>
-                </section>
-                <section>
-                    <h3>Programming by Contract</h3>
-                    <p>We implement programming (or design) by contract as a
-                    Hoare Triple:
-                    </p>
-                    <h2>{P} C {Q}</h2>
-                    <p>where <i>{P}</i> is the precondition before executing
-                    command <i>C</i>, and <i>{Q}</i> is the postcondition.
-                    </p>
-                </section>
-                <section>
-                    <h3>PBC Semantics</h3>
-                    <ul>
-                        <li>REQUIRE() - Function precondition</li>
-                        <li>ENSURE() - Function postcondition</li>
-                        <li>INVARIANT() - Calls function to test object consistancy</li>
-                    </ul>
-                    <p />
-                    <p>These semantics should only be enabled during debug builds</p>
-                </section>
-                <section>
-                    <h4>Now...</h4>
-                    <pre><code contenteditable language="c"> static int32_t
-_dict_set (dict_t *this, char *key, data_t *value, gf_boolean_t replace) {
-    REQUIRE(key != NULL);
-    REQUIRE(this != NULL);
-    REQUIRE(value != NULL);
-    REQUIRE(1000000 &gt; strlen(key));
-    REQUIRE((_gf_false == replace) || (_gf_true == replace));
-    REQUIRE(NULL != THIS);
-    REQUIRE(NULL != THIS-&gt;ctx);
-    REQUIRE(NULL != THIS-&gt;ctx-&gt;dict_pair_pool);
-    INVARIANT(_dict_invariant(this));
-    ...
-    INVARIANT(_dict_invariant(this));
-    ENSURE(NULL != _dict_lookup(this, key));
-}
-                    </code></pre>
-                </section>
-                <section>
-                    <h4><code>_dict_invariant()</code></h4>
-                    <pre><code contenteditable language="c"> static void
-_dict_invariant (dict_t *this) {
-    REQUIRE(this != NULL);
-    REQUIRE(this-&gt;refcount &gt; 0);
-    REQUIRE(this-&gt;lock != 0);
-    REQUIRE(this-&gt;members != NULL);
-}
-                    </code></pre>
-                </section>
 
 
                 <section>
@@ -316,15 +321,6 @@ double( int value ) {
     check_expected(value);
     return((int)mock());
 }</code></pre>
-                </section>
-
-                <section>
-                    <h1>What does all this</h1>
-                    <h1>really this mean?</h1>
-                </section>
-                <section>
-                    <h1>Easier</h1>
-                    <h1>Development!</h1>
                 </section>
 
                 <section>
