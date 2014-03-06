@@ -17,7 +17,7 @@
 
 ## Unit test in C using Cmockery2
 * Date: Feb 24, 2014
-* Title: [Unit Tests in C][unittest]
+* Title: [Test Methodologies in C][unittest]
 
 # About me
 ![luis pabon](images/luis_pabon.png)
