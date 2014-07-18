@@ -304,7 +304,7 @@ a(int x, int y) {
     return double(x) + y;
 }</code></pre>
                     <p>Place new mock <code>double()</code> in a_mock.c and build the test:</p>
-                    <pre><code contenteditable>gcc -o a_test a_test.c a.c a_mock.c</code></pre>
+                    <pre><code contenteditable>gcc -o a_test a_test.c a.c a_mock.c -lcmockery</code></pre>
                 </section>
 
                 <section>
@@ -336,9 +336,11 @@ $ ./configure
 $ ./make check</code></pre>
                 </section>
                 <section>
-                    <h2>Lab 1: Add PBC to hash.c</h2>
-                    <p>Add the following include</p>
-                    <pre><code>#include &lt;cmockery/pbc.h&gt;</code></pre>
+                    <h2>Lab 1: Add PBC to</h2>
+                    <h2><i>src/examples/hash.c</i></h2>
+                    <p>Add the following includes</p>
+                    <pre><code>#include &lt;cmockery/pbc.h&gt;
+#include &lt;cmockery/cmockery_override.h&gt;</code></pre>
                     <p>Add REQUIRE and ENSURE to all API functions.  Add REQUIRE() after variable initialization, and
                     ENSURE() before last return.</p>
                 </section>
@@ -347,13 +349,18 @@ $ ./make check</code></pre>
                     <h2>Lab 2: Add Unit Tests to hash_create()</h2>
                     <p>Open hash_test.c and add unit tests to hash_create().  You
                        first may want to start by testing any REQUIRE()s.  You can
-                       then test that NULL is returned when size is less than 1. You will
-                       need to add cmockery/cmockery_override.h to hash.c.</p>
+                       then test that NULL is returned when size is less than 1</p>
                 </section>
 
                 <section>
                     <h2>Lab 3: Mock strdup</h2>
-                    <p>Rename strdup to test_strdup.  Create a new file called hash_mock.c
+                    <p>Rename strdup to test_strdup as follows:</p>
+                    <pre><code language="c">#include &lt;cmockery/pbc.h&gt;
+#include &lt;cmockery/cmockery_override.h&gt;
+#ifdef UNIT_TESTING
+#define strdup test_strdup
+#endif</pre></code>
+                    <p>Create a new file called hash_mock.c
                     and add the mock function test_strdup to that file.  You can now use this function
                     to test.  Check the values passed to the mock function.  By using mocks,
                     you can now send back NULL from the mock function.
