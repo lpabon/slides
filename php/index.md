@@ -19,12 +19,17 @@
 * Date: Feb 24, 2014
 * Title: [Test Methodologies in C][unittest]
 
+## OpenStack Summit Atlant 2014
+* Title: [Breaking the Mold with OpenStack Swift and
+  GlusterFS](https://www.openstack.org/summit/openstack-summit-atlanta-2014/session-videos/presentation/breaking-the-mold-with-openstack-swift-and-glusterfs)
+
+# Blog
+* [G33K Notes](http://www.g33knotes.org)
+
 # About me
 ![luis pabon](images/luis_pabon.png)
-Luis Pabon is a Principal Software Engineer member of Red Hat Storage, the
-commercial product behind the community GlusterFS project. He is currently
-the project lead for gluster-swift community project as well as new GlusterFS
-integration projects with OpenStack. Prior to joining Red Hat in February of
+Luis Pabon is a Principal Software Engineer member of Red Hat Storage and
+creator of Pblcache. Prior to joining Red Hat in February of
 2013 he worked at NetApp Advanced Technology Group and at EMC on various
 storage products.
 	</body>
