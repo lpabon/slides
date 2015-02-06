@@ -448,17 +448,13 @@ double( int value ) {
                     <h1>Lab</h1>
                 </section>
                 <section>
-                    <p>Download the code</p>
-                    <pre><code>$ git clone -b lab https://github.com/lpabon/cmockery2.git</code></pre>
                     <p>Prepare the environment</p>
-                    <pre><code>$ sudo yum -y install libtool make autoconf automake gcc
-$ ./autogen.sh
-$ ./configure
-$ ./make check</code></pre>
+                    <pre><code>$ sudo yum -y install cmockery2 cmockery2-devel</code></pre>
+                    <p>Download the lab</p>
+                    <pre><code>$ git clone https://github.com/lpabon/hashtest.git</code></pre>
                 </section>
                 <section>
-                    <h2>Lab 1: Add PBC to</h2>
-                    <h2><i>src/examples/hash.c</i></h2>
+                    <h2>Lab 1: Add PBC to hash.c</h2>
                     <p>Add the following includes</p>
                     <pre><code>#include &lt;cmockery/pbc.h&gt;
 #include &lt;cmockery/cmockery_override.h&gt;</code></pre>
