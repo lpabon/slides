@@ -23,6 +23,9 @@
 * Title: [Breaking the Mold with OpenStack Swift and
   GlusterFS](https://www.openstack.org/summit/openstack-summit-atlanta-2014/session-videos/presentation/breaking-the-mold-with-openstack-swift-and-glusterfs)
 
+## Devconf.cz 2015
+* Title: [Reliable Code Construction with cmockery2](02052015_devconf_cmockery2.html)
+
 # Blog
 * [G33K Notes](http://www.g33knotes.org)
 
